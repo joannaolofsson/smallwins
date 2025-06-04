@@ -8,6 +8,7 @@ export default function Header() {
         <Link href="/" className="font-medium hover:underline">Home</Link>
         <Link href="/futureself/habit" className="font-medium hover:underline">Future Self</Link>
         <Link href="/smallwins/manual" className="font-medium hover:underline">Small Wins</Link>
+        <Link href="/dashboard" className="font-medium hover:underline">Dashboard</Link>
       </div>
     </nav>
   );

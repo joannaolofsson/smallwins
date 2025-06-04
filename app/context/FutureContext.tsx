@@ -1,4 +1,5 @@
 'use client';
+
 import React, { createContext, useContext, useState } from "react";
 import { supabase } from "../lib/supabase-client";
 import { FutureContextProps } from "../types/interfaces";
@@ -22,21 +23,18 @@ export function FutureProvider({ children }: { children: React.ReactNode }) {
 
     setInputFuture(data || []);
   };
+const addInput = async (category: string, name: string) => {
+  const { data, error } = await supabase
+    .from("future_inputs")
+    .insert([{ category, name, created_at: new Date().toISOString() }]);
 
-  const addInput = async (category: string, name: string) => {
-  
-
-  const { error } = await supabase.from("future_inputs").insert([
-    {
-      category,
-      name,
-    },
-  ]);
-
+  if (error) {
+    console.error("Error adding input:", error.message);
+    return;
+  }
 
   fetchInputs();
 };
-
 
   const deleteInput = async (id: string) => {
     const { error } = await supabase

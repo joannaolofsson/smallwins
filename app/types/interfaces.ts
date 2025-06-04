@@ -1,15 +1,15 @@
 
-// Futureself
+
 
 // Futureself/types
-export type InputType = "Habit" | "Accomplishment" | "Gift";
+export type InputType = "Habit" | "Accomplishment" | "Gift" | "Manual";
 
 // Futureself/interface
 
 export interface InputItem {
   id: string;
   user_id: string;
-  category: "Habit" | "Accomplishment" | "Gift";
+  category: "Habit" | "Accomplishment" | "Gift" | "Manual";
   name: string;
   created_at?: string;
 }
@@ -34,8 +34,6 @@ export interface FutureContextProps {
   deleteInput: (id: string) => Promise<void>;
 }
 
-
-// Smallwin
 
 // Smallwin / types
 export type SmallWinCategory = "habit" | "accomplishment" | "gift" | "manual";
@@ -97,14 +95,20 @@ export interface WinInput {
     existingWin?: WinInput; // Single win for comparison
   }
   
-
+  export type Input = {
+    id: string;
+    name: string;
+    category: string;
+    created_at: string;
+  };
+  
 // Encouragements
 
 export interface BoosterProp {
   limit: number;
 }
 
-export type EncouragementCategory = 'habit' | 'accomplishment' | 'gift'
+export type EncouragementCategory = 'habit' | 'accomplishment' | 'gift';
 
 export type Encouragement = {
   icon: string;

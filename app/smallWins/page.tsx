@@ -1,11 +1,5 @@
+import { redirect } from "next/navigation";
 
-
-import React from 'react'
-
-function SmallWins() {
-  return (
-    <div>page</div>
-  )
+export default function RedirectToManual() {
+  return redirect("/smallwins/manual");
 }
-
-export default SmallWins 

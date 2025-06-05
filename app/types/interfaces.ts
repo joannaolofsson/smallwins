@@ -1,24 +1,19 @@
-
-
-
-// Futureself/types
-export type InputType = "Habit" | "Accomplishment" | "Gift" | "Manual";
-
-// Futureself/interface
+// Future self
+export type InputType = "Habit" | "Accomplishment" | "Gift" ;
 
 export interface InputItem {
   id: string;
   user_id: string;
-  category: "Habit" | "Accomplishment" | "Gift" | "Manual";
+  category: "Habit" | "Accomplishment" | "Gift";
   name: string;
   created_at?: string;
 }
 
 export interface FutureInput {
-  name: string; // Name of the item
-  category?: string; // Habit, Gift, Accomplishment
-  created_at?: string; // Timestamp
-  [key: string]: any; // Additional dynamic fields (if needed)
+  name: string; 
+  category?: string; 
+  created_at?: string; 
+  [key: string]: any; 
 }
 
 export interface InputProps {
@@ -28,32 +23,29 @@ export interface InputProps {
 }
 
 export interface FutureContextProps {
-  inputFuture: any[]; // Changed from `inputs` to `inputFuture`
+  inputFuture: any[]; 
   fetchInputs: () => Promise<void>;
   addInput: (category: string, name: string) => Promise<void>;
   deleteInput: (id: string) => Promise<void>;
 }
 
-
-// Smallwin / types
+// Smallwin 
 export type SmallWinCategory = "habit" | "accomplishment" | "gift" | "manual";
+
+export interface Input {
+  id: string;
+  name: string;
+  category: SmallWinCategory; // ✅ Ensure proper typing here
+  created_at: string;
+}
+
 
 export type WinFormValues = {
   message: string;
   emotion: string;
-  category: SmallWinCategory; // Include category in form values
+  category: SmallWinCategory; 
   input_future: string;
 };
-
-
-//export interface SmallWinItem {
-  //uniqueKey: string;
-  //category: string;
-  //icon: string; 
-  //winmessage: string;
-  //encouragement: string;
-  //color: string;
-//}
 
 export interface WinInput {
   id: string;
@@ -66,28 +58,6 @@ export interface WinInput {
   emotion?: string;
 }
 
-
-
-
-//export interface icons {
-    //habit: string[];
-    //accomplishment: string[];
-    //gift: string[];
-    //encouragement: string[];
-    //color: string[];
-  //}
-
-  //export interface SmallWin {
-    //inputId: string;
-    //id: string;
-    //winmessage: string;
-    //icon: string;
-    //encouragement: string;
-    //color: string;
-    //category?: string;
-    //emotion?: string;
-  //}
-
   export interface WinProviderProps {
     smallWins: WinInput[]; // Array of wins
     addWin: (input: Omit<WinInput, 'id'>) => Promise<void>; // Function to add a win
@@ -95,12 +65,12 @@ export interface WinInput {
     existingWin?: WinInput; // Single win for comparison
   }
   
-  export type Input = {
-    id: string;
-    name: string;
-    category: string;
-    created_at: string;
-  };
+
+
+
+export interface SmallWinProps {
+  selectedCategory: string;
+}
   
 // Encouragements
 

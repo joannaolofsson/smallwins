@@ -13,7 +13,6 @@
   export default function Summary() {
     const { inputFuture } = useFuture(); // Use FutureContext for Future Self goals
     const { wins } = useWin(); // Use WinContext for Small Wins
-    const [userId, setUserId] = useState<string | null>(null);
     const [inputs, setInputs] = useState<Input[]>([]);
     const [loading, setLoading] = useState(true);
 
@@ -32,11 +31,8 @@
     }
 
     const seen = new Set();
-    const latestPerCategory = data.filter((item) => {
-      if (seen.has(item.category)) return false;
-      seen.add(item.category);
-      return true;
-    });
+    const latestPerCategory = data.filter((item) => item.category && !seen.has(item.category));
+  
 
     setInputs(latestPerCategory.slice(0, 3));
     setLoading(false);
@@ -45,9 +41,16 @@
   fetchInputs();
 }, []);
 
-    const handleClick = (category: string) => {
-      router.push(`/smallwins/${category}`);
-    };
+    const handleClick = (category: string | undefined) => {
+  if (!category) {
+    console.error("Category is undefined, preventing navigation.");
+    return;
+  }
+  console.log("Navigating to:", `/smallwins/${category}`);
+  router.push(`/smallwins/${category}`);
+};
+
+
 
     return (
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

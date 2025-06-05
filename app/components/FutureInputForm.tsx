@@ -17,8 +17,16 @@ export default function FutureInputForm({ type, onSubmitted }: { type: string, o
 
   return (
     <div className="flex flex-col gap-4">
-      <Input value={value} onChange={(e) => setValue(e.target.value)} placeholder={`Add a ${type}...`} />
-      <Button onClick={handleSubmit}>Submit</Button>
+      <Input 
+        value={value} 
+        onChange={(e) => setValue(e.target.value)} 
+        placeholder={`Add a ${type}...`} 
+      />
+      <Button 
+        onClick={handleSubmit}
+      >
+        Submit
+      </Button>
     </div>
   );
 }

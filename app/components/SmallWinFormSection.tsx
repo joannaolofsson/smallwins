@@ -7,6 +7,8 @@
   import { Label } from "./ui/label";
   import { Button } from "./ui/button";
   import { WinFormValues } from "../types/interfaces";
+  import { SmallWinCategory } from "../types/interfaces"; // Adjust path if needed
+
 
   export const SmallWinFormSection = ({ selectedId, category }: { selectedId?: string, category?: string }) => {
 
@@ -32,17 +34,14 @@
         }
 
         await createWin({
-          inputFuture: selectedId ?? crypto.randomUUID(),
-          message: data.message,
-          icon,
-          encouragement,
-          color,
-          emotion: data.emotion,
-          category: category || "manual", // ✅ now dynamic
-        });
-
-
-        
+      inputFuture: selectedId ?? crypto.randomUUID(),
+      message: data.message,
+      icon,
+      encouragement,
+      color,
+      emotion: data.emotion,
+      category: category as SmallWinCategory, 
+});
 
         reset();
       } catch (err) {

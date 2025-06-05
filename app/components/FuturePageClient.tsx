@@ -35,7 +35,6 @@ export default function FuturePageClient({ type }: { type: string }) {
 
   return (
     <>
-  
       <div className="flex flex-col items-center min-h-screen mt-8">
         <div className="w-full max-w-4xl flex flex-col justify-center bg-white/30 border border-white/20 rounded-xl backdrop-blur-[15px] shadow-lg cursor-pointer my-6 gap-2 py-8 px-8 md:px-20">
           <h2 className="mb-4 text-2xl md:text-4xl text-start text-[#333333]">

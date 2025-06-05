@@ -4,16 +4,12 @@ import Link from "next/link";
 import { PiCaretLeft } from "react-icons/pi";
 import { SmallWinFormSection } from "./SmallWinFormSection";
 import SmallWinBooster from "./SmallWinBooster";
+import { SmallWinProps } from "../types/interfaces";
 
-interface Props {
-  selectedCategory: string;
-}
-
-export default function SmallWinClientPage({ selectedCategory }: Props) {
+export default function SmallWinClientPage({ selectedCategory }: SmallWinProps) {
   console.log("selectedCategory:", selectedCategory);
 
-  return (
-   
+  return (  
     <div className="min-h-screen mt-8"> 
       <Button asChild variant="none" className="mx-8">
         <Link href="/"><PiCaretLeft /> Tillbaka</Link>
